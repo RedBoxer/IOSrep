@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VkNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No one logged in" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpM-24-Xte">
+                                <rect key="frame" x="20" y="44" width="374" height="140"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="232-5w-ziZ">
+                                <rect key="frame" x="20" y="368" width="374" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="LogOutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39V-QS-iiY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="left" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-mF-dew">
+                                <rect key="frame" x="20" y="314" width="374" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Log in via VK"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWZ-Fx-xpf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="top" secondItem="CpM-24-Xte" secondAttribute="bottom" constant="8" id="0dZ-rd-UdB"/>
+                            <constraint firstItem="CpM-24-Xte" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3J4-1o-2OX"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="bottom" secondItem="CpM-24-Xte" secondAttribute="bottom" id="3bK-vp-XYf"/>
+                            <constraint firstItem="232-5w-ziZ" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="6PT-be-yQz"/>
+                            <constraint firstItem="232-5w-ziZ" firstAttribute="width" secondItem="HKC-mF-dew" secondAttribute="width" id="8Sb-ya-d09"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="98g-XT-bM4"/>
+                            <constraint firstItem="232-5w-ziZ" firstAttribute="top" secondItem="HKC-mF-dew" secondAttribute="bottom" constant="53" id="9Zd-xE-XMF"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="width" secondItem="CpM-24-Xte" secondAttribute="width" id="IUu-nc-4sg"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="R6F-hz-yfr"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="top" secondItem="CpM-24-Xte" secondAttribute="bottom" constant="74" id="SJ8-da-H0b"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="VYu-qZ-8fc"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="YnF-BL-d1T"/>
+                            <constraint firstItem="CpM-24-Xte" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="bC4-XE-iag"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hXb-Rz-4h3"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="jm8-s5-HzL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="Label" destination="CpM-24-Xte" id="7hE-gb-KqK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="32.8125"/>
+        </scene>
+    </scenes>
+</document>
