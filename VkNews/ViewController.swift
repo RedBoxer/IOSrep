@@ -10,46 +10,58 @@ import UIKit
 import SwiftyVK
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var Text: UILabel!
+        
+    struct User: Codable {
+        var first_name: String
+        var last_name: String
+        var id: CUnsignedLong
+        var can_access_closed: Bool
+        var is_closed: Bool
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if (!VK.needToSetUp){
+            setLabel()
+        }
     }
 
     
-
+    @IBOutlet weak var Label: UILabel!
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         let AuthResult = APIWorker.authorize()
         if (AuthResult)
         {
-            var response: JSON
-            response = nil
-            VK.API.Users.get(.empty).onSuccess{
-                response = try JSON(data: $0)
-            }.send()
-            if(response != nil){
-                Text.text = response["user_id"].stringValue
-            }
+            setLabel()
         }
     }
     
-    @IBAction func labelUpdatePressed(_ sender: UIButton) {
-        setLabel()
+    @IBAction func LogOutButtonPressed(_ sender: UIButton) {
+        APIWorker.logout()
+        Label.text = "No one logged in"
     }
+    
+    var users: [User] = []
     func setLabel(){
-        var response: JSON
-        response = nil
-        VK.API.Users.get(.empty).onSuccess{
-            print("trying")
-            response = try JSON(data: $0)
+        var responseRecieved = false
+        var fail = false
+        let decoder = JSONDecoder()
+        VK.API.Users.get([.userId: "", .fields:"first_name,last_name"]).onSuccess{response in
+            self.users = try decoder.decode([User].self, from: response)
+            responseRecieved = true
         }
-        .onError{_ in print("fail")}.send()
-        if(response != nil){
-            Text.text = response["user_id"].stringValue
+        .onError{_ in print("fail")
+            fail = true}.send()
+        while(!fail && !responseRecieved){
+            
         }
-        
+        if (!fail){
+            Label.text = users[0].first_name + " " + users[0].last_name + " currently logged in"
+        }
     }
+    
+    
 }
 

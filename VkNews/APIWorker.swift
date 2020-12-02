@@ -3,30 +3,7 @@ import SwiftyVK
 
 
 final class APIWorker {
-    
-    class func action(_ tag: Int) {
-        switch tag {
-        case 1:
-            authorize()
-        case 2:
-            logout()
-        case 3:
-            captcha()
-        case 4:
-            usersGet()
-        case 5:
-            friendsGet()
-        case 6:
-            uploadPhoto()
-        case 7:
-            validation()
-        case 8:
-            share()
-        default:
-            print("Unrecognized action!")
-        }
-    }
-    
+
     class func authorize() -> Bool {
         var chk = false
         VK.sessions.default.logIn(
@@ -75,54 +52,4 @@ final class APIWorker {
             .send()
     }
     
-    class func uploadPhoto() {
-        guard
-            let pathToImage = Bundle.main.path(forResource: "testImage", ofType: "png"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: pathToImage))
-            else {
-                print("Can not find testImage.png")
-                return
-        }
-        
-        let media = Media.image(data: data, type: .png)
-        
-        VK.API.Upload.Photo.toWall(media, to: .user(id: "4680178"))
-            .onSuccess { print("SwiftyVK: upload successed with \n \(JSON($0))") }
-            .onError { print("SwiftyVK: upload failed with \n \($0)")}
-            .onProgress { print($0) }
-            .send()
-    }
-    
-    class func share() {
-        guard #available(iOS 8.0, macOS 10.11, *) else {
-            print("Sharing available only on iOS 8.0+ and macOS 10.11+")
-            return
-        }
-        
-        guard
-            let pathToImage = Bundle.main.path(forResource: "testImage", ofType: "png"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: pathToImage)),
-            let link = URL(string: "https://en.wikipedia.org/wiki/Hyperspace")
-            else {
-                print("Can not find testImage.png")
-                return
-        }
-        
-        VK.sessions.default.share(
-            ShareContext(
-                text: "This post made with #SwiftyVK 🖖🏽",
-                images: [
-                    ShareImage(data: data, type: .jpg),
-                    ShareImage(data: data, type: .jpg),
-                    ShareImage(data: data, type: .jpg),
-                ],
-                link: ShareLink(
-                    title: "Follow the white rabbit",
-                    url: link
-                )
-            ),
-            onSuccess: { print("SwiftyVK: successfully shared with \n \(JSON($0))") },
-            onError: { print("SwiftyVK: share failed with \n \($0)") }
-        )
-    }
 }
