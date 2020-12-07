@@ -18,29 +18,34 @@ class ViewController: UIViewController {
         var can_access_closed: Bool
         var is_closed: Bool
     }
+    @IBOutlet weak var LogOutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if (!VK.needToSetUp){
+        if (VK.sessions.default.state == .authorized){
             setLabel()
+            LogOutButton.isEnabled = true
         }
     }
 
+    @IBAction func GoToNewsPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "GoToNews", sender: self)
+    }
     
     @IBOutlet weak var Label: UILabel!
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        let AuthResult = APIWorker.authorize()
-        if (AuthResult)
-        {
-            setLabel()
+        if(APIWorker.authorize()){
+            LogOutButton.isEnabled = true
         }
+        
     }
     
     @IBAction func LogOutButtonPressed(_ sender: UIButton) {
         APIWorker.logout()
         Label.text = "No one logged in"
+        LogOutButton.isEnabled =  false
     }
     
     var users: [User] = []

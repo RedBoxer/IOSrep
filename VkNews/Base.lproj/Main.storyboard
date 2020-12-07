@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,28 +23,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="232-5w-ziZ">
-                                <rect key="frame" x="20" y="368" width="374" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Log out"/>
-                                <connections>
-                                    <action selector="LogOutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39V-QS-iiY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="left" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-mF-dew">
-                                <rect key="frame" x="20" y="314" width="374" height="46"/>
+                            <button opaque="NO" contentMode="left" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-mF-dew">
+                                <rect key="frame" x="13" y="261" width="381" height="73"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Log in via VK"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWZ-Fx-xpf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="232-5w-ziZ">
+                                <rect key="frame" x="16" y="342" width="374" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="LogOutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39V-QS-iiY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-Ng-TPr">
+                                <rect key="frame" x="20" y="168" width="340" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Go to news"/>
+                                <connections>
+                                    <action selector="GoToNewsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7p-hY-tKk"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="top" secondItem="CpM-24-Xte" secondAttribute="bottom" constant="8" id="0dZ-rd-UdB"/>
                             <constraint firstItem="CpM-24-Xte" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3J4-1o-2OX"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="bottom" secondItem="CpM-24-Xte" secondAttribute="bottom" id="3bK-vp-XYf"/>
                             <constraint firstItem="232-5w-ziZ" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="6PT-be-yQz"/>
                             <constraint firstItem="232-5w-ziZ" firstAttribute="width" secondItem="HKC-mF-dew" secondAttribute="width" id="8Sb-ya-d09"/>
                             <constraint firstItem="HKC-mF-dew" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="98g-XT-bM4"/>
@@ -55,16 +64,34 @@
                             <constraint firstItem="CpM-24-Xte" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="bC4-XE-iag"/>
                             <constraint firstItem="HKC-mF-dew" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hXb-Rz-4h3"/>
                             <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="jm8-s5-HzL"/>
+                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="width" secondItem="232-5w-ziZ" secondAttribute="width" multiplier="0.122995" id="kEP-Qh-7ft"/>
+                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="trailing" secondItem="232-5w-ziZ" secondAttribute="trailing" id="ngg-bc-Mj5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="Label" destination="CpM-24-Xte" id="7hE-gb-KqK"/>
+                        <outlet property="LogOutButton" destination="232-5w-ziZ" id="RUk-13-BPf"/>
+                        <segue destination="FzV-ZX-YMZ" kind="show" identifier="GoToNews" id="j7p-Fz-Ogd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.188405797101453" y="32.8125"/>
+            <point key="canvasLocation" x="82.608695652173921" y="108.48214285714285"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Zg4-33-lGS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="1" id="FzV-ZX-YMZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Axh-YS-nRR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eR8-c9-fz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814" y="108"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
