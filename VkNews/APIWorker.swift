@@ -4,16 +4,16 @@ import SwiftyVK
 
 final class APIWorker {
 
-    class func authorize() -> Bool {
-        var chk = false
+    class func authorize()-> Bool {
+        var chk = true
         VK.sessions.default.logIn(
             onSuccess: { info in
                 print("SwiftyVK: success authorize with", info)
-                chk = true
+                
             },
             onError: { error in
                 print("SwiftyVK: authorize failed with", error)
-            }
+                chk = false            }
         )
         return chk
     }

@@ -10,7 +10,11 @@ import UIKit
 import SwiftyVK
 
 class ViewController: UIViewController {
-        
+    @IBOutlet weak var LogOutButton: UIButton!
+    @IBOutlet weak var LogInButton: UIButton!
+    @IBOutlet weak var GoToNewsButton: UIButton!
+    @IBOutlet weak var Label: UILabel!
+    
     struct User: Codable {
         var first_name: String
         var last_name: String
@@ -19,49 +23,61 @@ class ViewController: UIViewController {
         var is_closed: Bool
     }
     
+    var users: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if (!VK.needToSetUp){
+        updateViewContent()
+    }
+    
+    func updateViewContent(){
+        if (VK.sessions.default.state == .authorized){
             setLabel()
+            LogOutButton.isEnabled = true
+            GoToNewsButton.isEnabled = true
+            LogInButton.isEnabled = false
+        }else{
+            Label.text = "No one logged in"
+            LogOutButton.isEnabled =  false
+            GoToNewsButton.isEnabled = false
+            LogInButton.isEnabled = true
         }
     }
 
     
-    @IBOutlet weak var Label: UILabel!
+    @IBAction func GoToNewsPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "GoToNews", sender: self)
+    }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        let AuthResult = APIWorker.authorize()
-        if (AuthResult)
-        {
-            setLabel()
-        }
+      VK.sessions.default.logIn(
+            onSuccess: { info in
+                DispatchQueue.main.async {
+                    self.updateViewContent()
+                }
+            },
+            onError: { error in
+                print("SwiftyVK: authorize failed with", error)
+            }
+        )
     }
     
     @IBAction func LogOutButtonPressed(_ sender: UIButton) {
         APIWorker.logout()
-        Label.text = "No one logged in"
+        updateViewContent()
     }
     
-    var users: [User] = []
     func setLabel(){
-        var responseRecieved = false
-        var fail = false
         let decoder = JSONDecoder()
-        VK.API.Users.get([.userId: "", .fields:"first_name,last_name"]).onSuccess{response in
+        VK.API.Users.get([.userId: "", .fields:"first_name,last_name"])
+        .onSuccess{response in
             self.users = try decoder.decode([User].self, from: response)
-            responseRecieved = true
+            DispatchQueue.main.async {
+                self.Label.text = self.users[0].first_name + " " + self.users[0].last_name + " currently logged in"
+            }
         }
-        .onError{_ in print("fail")
-            fail = true}.send()
-        while(!fail && !responseRecieved){
-            
-        }
-        if (!fail){
-            Label.text = users[0].first_name + " " + users[0].last_name + " currently logged in"
-        }
+        .onError{_ in print("fail")}.send()
     }
-    
-    
 }
 

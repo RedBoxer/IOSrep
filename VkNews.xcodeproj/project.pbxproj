@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3FCAD4257E4DAF0083F1BD /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3FCAD3257E4DAF0083F1BD /* News.storyboard */; };
+		6B3FCAD6257E4E370083F1BD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */; };
 		6BA259032575196C00B5CD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259022575196C00B5CD4D /* AppDelegate.swift */; };
 		6BA259052575196C00B5CD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259042575196C00B5CD4D /* SceneDelegate.swift */; };
 		6BA259072575196C00B5CD4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259062575196C00B5CD4D /* ViewController.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B3FCAD3257E4DAF0083F1BD /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		6BA258FF2575196C00B5CD4D /* VkNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA259022575196C00B5CD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA259042575196C00B5CD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,11 +135,13 @@
 				6BA259042575196C00B5CD4D /* SceneDelegate.swift */,
 				6BD4B82325752A2A006E19CF /* VKDelegate.swift */,
 				6BD4B82525752FA0006E19CF /* SwiftyJSON.swift */,
+				6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */,
 				6BA259062575196C00B5CD4D /* ViewController.swift */,
 				6BA259082575196C00B5CD4D /* Main.storyboard */,
 				6BA2590B2575196F00B5CD4D /* Assets.xcassets */,
 				6BA2590D2575196F00B5CD4D /* LaunchScreen.storyboard */,
 				6BA259102575196F00B5CD4D /* Info.plist */,
+				6B3FCAD3257E4DAF0083F1BD /* News.storyboard */,
 			);
 			path = VkNews;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				6BA2590F2575196F00B5CD4D /* LaunchScreen.storyboard in Resources */,
 				6BA2590C2575196F00B5CD4D /* Assets.xcassets in Resources */,
 				6BA2590A2575196C00B5CD4D /* Main.storyboard in Resources */,
+				6B3FCAD4257E4DAF0083F1BD /* News.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +295,7 @@
 				6BA259032575196C00B5CD4D /* AppDelegate.swift in Sources */,
 				6BD4B82425752A2A006E19CF /* VKDelegate.swift in Sources */,
 				6BD4B82625752FA0006E19CF /* SwiftyJSON.swift in Sources */,
+				6B3FCAD6257E4E370083F1BD /* NewsViewController.swift in Sources */,
 				6BD4B822257529B7006E19CF /* APIWorker.swift in Sources */,
 				6BA259052575196C00B5CD4D /* SceneDelegate.swift in Sources */,
 			);
