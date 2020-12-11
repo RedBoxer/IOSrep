@@ -17,61 +17,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No one logged in" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpM-24-Xte">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="No one logged in" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpM-24-Xte">
                                 <rect key="frame" x="20" y="44" width="374" height="140"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="left" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-mF-dew">
-                                <rect key="frame" x="13" y="261" width="381" height="73"/>
+                            <button opaque="NO" contentMode="left" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-mF-dew">
+                                <rect key="frame" x="20" y="81" width="381" height="112"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Log in via VK"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWZ-Fx-xpf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="232-5w-ziZ">
-                                <rect key="frame" x="16" y="342" width="374" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-Ng-TPr">
+                                <rect key="frame" x="33" y="193" width="340" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Go to news"/>
+                                <connections>
+                                    <action selector="GoToNewsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7p-hY-tKk"/>
+                                    <segue destination="gEp-8b-lcp" kind="show" identifier="GoToNews" id="Vjx-17-hiB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="232-5w-ziZ">
+                                <rect key="frame" x="23" y="239" width="374" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
                                     <action selector="LogOutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39V-QS-iiY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-Ng-TPr">
-                                <rect key="frame" x="20" y="168" width="340" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Go to news"/>
-                                <connections>
-                                    <action selector="GoToNewsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7p-hY-tKk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CpM-24-Xte" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3J4-1o-2OX"/>
-                            <constraint firstItem="232-5w-ziZ" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="6PT-be-yQz"/>
-                            <constraint firstItem="232-5w-ziZ" firstAttribute="width" secondItem="HKC-mF-dew" secondAttribute="width" id="8Sb-ya-d09"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="98g-XT-bM4"/>
-                            <constraint firstItem="232-5w-ziZ" firstAttribute="top" secondItem="HKC-mF-dew" secondAttribute="bottom" constant="53" id="9Zd-xE-XMF"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="width" secondItem="CpM-24-Xte" secondAttribute="width" id="IUu-nc-4sg"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="R6F-hz-yfr"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="top" secondItem="CpM-24-Xte" secondAttribute="bottom" constant="74" id="SJ8-da-H0b"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="VYu-qZ-8fc"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="YnF-BL-d1T"/>
-                            <constraint firstItem="CpM-24-Xte" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="bC4-XE-iag"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hXb-Rz-4h3"/>
-                            <constraint firstItem="HKC-mF-dew" firstAttribute="trailing" secondItem="CpM-24-Xte" secondAttribute="trailing" id="jm8-s5-HzL"/>
-                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="width" secondItem="232-5w-ziZ" secondAttribute="width" multiplier="0.122995" id="kEP-Qh-7ft"/>
-                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="trailing" secondItem="232-5w-ziZ" secondAttribute="trailing" id="ngg-bc-Mj5"/>
+                            <constraint firstItem="232-5w-ziZ" firstAttribute="width" secondItem="tmh-Ng-TPr" secondAttribute="width" multiplier="1.1" id="7Na-G2-Ryr"/>
+                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="top" secondItem="HKC-mF-dew" secondAttribute="bottom" id="W8i-Yb-Ulp"/>
+                            <constraint firstItem="CpM-24-Xte" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="X4M-a4-Ec7"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="width" secondItem="CpM-24-Xte" secondAttribute="width" multiplier="1.01872" id="aNa-Ky-vQn"/>
+                            <constraint firstItem="CpM-24-Xte" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="b9j-tw-ju1"/>
+                            <constraint firstItem="232-5w-ziZ" firstAttribute="top" secondItem="tmh-Ng-TPr" secondAttribute="bottom" id="ebv-Qe-B7B"/>
+                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="width" secondItem="HKC-mF-dew" secondAttribute="width" multiplier="0.892388" id="pJL-M1-0o1"/>
+                            <constraint firstItem="tmh-Ng-TPr" firstAttribute="height" secondItem="HKC-mF-dew" secondAttribute="height" multiplier="0.410959" id="uvz-12-0GG"/>
+                            <constraint firstItem="232-5w-ziZ" firstAttribute="height" secondItem="tmh-Ng-TPr" secondAttribute="height" multiplier="1.63333" id="vWL-qW-8xK"/>
+                            <constraint firstItem="HKC-mF-dew" firstAttribute="top" secondItem="CpM-24-Xte" secondAttribute="bottom" id="vvg-J3-aOV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="GoToNewsButton" destination="tmh-Ng-TPr" id="fAN-qg-Rqd"/>
                         <outlet property="Label" destination="CpM-24-Xte" id="7hE-gb-KqK"/>
+                        <outlet property="LogInButton" destination="HKC-mF-dew" id="4fy-fT-vRD"/>
                         <outlet property="LogOutButton" destination="232-5w-ziZ" id="RUk-13-BPf"/>
-                        <segue destination="FzV-ZX-YMZ" kind="show" identifier="GoToNews" id="j7p-Fz-Ogd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,6 +84,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eR8-c9-fz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="814" y="108"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="ly1-Wg-e4F">
+            <objects>
+                <tableViewController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gEp-8b-lcp" customClass="NewsViewController" customModule="VkNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="95U-hS-HW9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TsL-q6-A0d">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TsL-q6-A0d" id="EHt-Xh-BzU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gEp-8b-lcp" id="odN-3Q-FGr"/>
+                            <outlet property="delegate" destination="gEp-8b-lcp" id="dsO-g0-sbS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="jbT-r2-fgy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQx-Cw-Nvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="191"/>
         </scene>
     </scenes>
     <resources>

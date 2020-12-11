@@ -142,6 +142,9 @@ public final class SessionImpl: Session, TaskSession, DestroyableSession, ApiErr
                 let info = try self.logIn(revoke: true)
                 DispatchQueue.global().async {
                     onSuccess(info)
+                    DispatchQueue.main.async {
+                       
+                    }
                 }
             }
             catch let error {

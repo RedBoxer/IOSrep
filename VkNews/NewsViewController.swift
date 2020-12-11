@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyVK
 
-class NewsViewController: UIViewController{
+class NewsViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
