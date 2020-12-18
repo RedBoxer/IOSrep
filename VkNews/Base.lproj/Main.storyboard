@@ -37,7 +37,7 @@
                                 <state key="normal" title="Go to news"/>
                                 <connections>
                                     <action selector="GoToNewsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q7p-hY-tKk"/>
-                                    <segue destination="gEp-8b-lcp" kind="show" identifier="GoToNews" id="Vjx-17-hiB"/>
+                                    <segue destination="gEp-8b-lcp" kind="show" identifier="GoToNews" destinationCreationSelector="segue:" id="Vjx-17-hiB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="232-5w-ziZ">
@@ -94,13 +94,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TsL-q6-A0d">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="412" id="TsL-q6-A0d" customClass="NewsTableViewCell" customModule="VkNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="412"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TsL-q6-A0d" id="EHt-Xh-BzU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="412"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="trash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A87-WP-O6v">
+                                            <rect key="frame" x="66" y="89" width="40" height="44"/>
+                                            <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uy-bc-MTn">
+                                            <rect key="frame" x="19" y="162" width="375" height="58"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4Uy-bc-MTn" firstAttribute="top" secondItem="A87-WP-O6v" secondAttribute="bottom" id="LLA-7T-27c"/>
+                                        <constraint firstItem="A87-WP-O6v" firstAttribute="top" secondItem="EHt-Xh-BzU" secondAttribute="top" constant="90" id="i4w-Gl-QRb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="NewsImage" destination="A87-WP-O6v" id="FNO-5P-eGL"/>
+                                    <outlet property="NewsText" destination="4Uy-bc-MTn" id="yS8-Jv-z95"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -112,10 +133,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQx-Cw-Nvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317" y="191"/>
+            <point key="canvasLocation" x="1314.4927536231885" y="190.84821428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B021FF72584B54500207716 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B021FF62584B54500207716 /* NewsTableViewCell.swift */; };
 		6B3FCAD4257E4DAF0083F1BD /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3FCAD3257E4DAF0083F1BD /* News.storyboard */; };
 		6B3FCAD6257E4E370083F1BD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */; };
 		6BA259032575196C00B5CD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259022575196C00B5CD4D /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 		6BD4B822257529B7006E19CF /* APIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4B821257529B7006E19CF /* APIWorker.swift */; };
 		6BD4B82425752A2A006E19CF /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4B82325752A2A006E19CF /* VKDelegate.swift */; };
 		6BD4B82625752FA0006E19CF /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4B82525752FA0006E19CF /* SwiftyJSON.swift */; };
+		6BF2EAFC258A46A000E8E39C /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF2EAFB258A469F00E8E39C /* NewsFeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B021FF62584B54500207716 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		6B3FCAD3257E4DAF0083F1BD /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		6BA258FF2575196C00B5CD4D /* VkNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,7 @@
 		6BD4B821257529B7006E19CF /* APIWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWorker.swift; sourceTree = "<group>"; };
 		6BD4B82325752A2A006E19CF /* VKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
 		6BD4B82525752FA0006E19CF /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		6BF2EAFB258A469F00E8E39C /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,10 +142,12 @@
 				6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */,
 				6BA259062575196C00B5CD4D /* ViewController.swift */,
 				6BA259082575196C00B5CD4D /* Main.storyboard */,
+				6B021FF62584B54500207716 /* NewsTableViewCell.swift */,
 				6BA2590B2575196F00B5CD4D /* Assets.xcassets */,
 				6BA2590D2575196F00B5CD4D /* LaunchScreen.storyboard */,
 				6BA259102575196F00B5CD4D /* Info.plist */,
 				6B3FCAD3257E4DAF0083F1BD /* News.storyboard */,
+				6BF2EAFB258A469F00E8E39C /* NewsFeed.swift */,
 			);
 			path = VkNews;
 			sourceTree = "<group>";
@@ -293,9 +299,11 @@
 			files = (
 				6BA259072575196C00B5CD4D /* ViewController.swift in Sources */,
 				6BA259032575196C00B5CD4D /* AppDelegate.swift in Sources */,
+				6B021FF72584B54500207716 /* NewsTableViewCell.swift in Sources */,
 				6BD4B82425752A2A006E19CF /* VKDelegate.swift in Sources */,
 				6BD4B82625752FA0006E19CF /* SwiftyJSON.swift in Sources */,
 				6B3FCAD6257E4E370083F1BD /* NewsViewController.swift in Sources */,
+				6BF2EAFC258A46A000E8E39C /* NewsFeed.swift in Sources */,
 				6BD4B822257529B7006E19CF /* APIWorker.swift in Sources */,
 				6BA259052575196C00B5CD4D /* SceneDelegate.swift in Sources */,
 			);

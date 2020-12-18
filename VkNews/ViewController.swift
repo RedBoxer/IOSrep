@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         var is_closed: Bool
     }
     
+   
     var users: [User] = []
     
     override func viewDidLoad() {
@@ -45,7 +46,16 @@ class ViewController: UIViewController {
         }
     }
 
-    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.identifier == "GoToNews") {
+
+            let yourNextViewController = (segue.destination as? NewsViewController)
+                
+            
+        }
+       
+    }*/
     @IBAction func GoToNewsPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "GoToNews", sender: self)
     }
