@@ -29,24 +29,26 @@ class NewsViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 200 //or whatever you need
+        return 200
     }
+
     override func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if ((newsfeed?.ready) != nil){
             return newsfeed!.posts.count
         }
         return 1
     }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell else { fatalError()  }
         if((newsfeed?.ready) != nil){   
             let post = newsfeed?.posts[indexPath.row]
             if(post != nil){
                 cell.NewsImage.image = post!.group_img
-               // cell.NewsImage.frame = CGRectMake(40,40,40,40)
                 cell.NewsText.text = post!.group_name
             }
             
