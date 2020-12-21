@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B021FF72584B54500207716 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B021FF62584B54500207716 /* NewsTableViewCell.swift */; };
 		6B3FCAD4257E4DAF0083F1BD /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3FCAD3257E4DAF0083F1BD /* News.storyboard */; };
-		6B3FCAD6257E4E370083F1BD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */; };
 		6BA259032575196C00B5CD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259022575196C00B5CD4D /* AppDelegate.swift */; };
 		6BA259052575196C00B5CD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259042575196C00B5CD4D /* SceneDelegate.swift */; };
 		6BA259072575196C00B5CD4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA259062575196C00B5CD4D /* ViewController.swift */; };
@@ -18,6 +16,8 @@
 		6BA2590F2575196F00B5CD4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA2590D2575196F00B5CD4D /* LaunchScreen.storyboard */; };
 		6BA25947257525E600B5CD4D /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA2593E257525A300B5CD4D /* SwiftyVK.framework */; };
 		6BA25948257525E600B5CD4D /* SwiftyVK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA2593E257525A300B5CD4D /* SwiftyVK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6BA77FA225908ED900AF90CD /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA77FA125908ED900AF90CD /* WelcomeViewController.swift */; };
+		6BA77FAB2590AB3800AF90CD /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA77FAA2590AB3800AF90CD /* NewNewsViewController.swift */; };
 		6BD4B822257529B7006E19CF /* APIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4B821257529B7006E19CF /* APIWorker.swift */; };
 		6BD4B82425752A2A006E19CF /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4B82325752A2A006E19CF /* VKDelegate.swift */; };
 		6BD4B82625752FA0006E19CF /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4B82525752FA0006E19CF /* SwiftyJSON.swift */; };
@@ -84,9 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6B021FF62584B54500207716 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		6B3FCAD3257E4DAF0083F1BD /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
-		6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		6BA258FF2575196C00B5CD4D /* VkNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA259022575196C00B5CD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA259042575196C00B5CD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +94,8 @@
 		6BA2590E2575196F00B5CD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BA259102575196F00B5CD4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA25931257525A300B5CD4D /* SwiftyVK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyVK.xcodeproj; path = VkNews/Library/SwiftyVK.xcodeproj; sourceTree = "<group>"; };
+		6BA77FA125908ED900AF90CD /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		6BA77FAA2590AB3800AF90CD /* NewNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNewsViewController.swift; sourceTree = "<group>"; };
 		6BD4B821257529B7006E19CF /* APIWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWorker.swift; sourceTree = "<group>"; };
 		6BD4B82325752A2A006E19CF /* VKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
 		6BD4B82525752FA0006E19CF /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -135,14 +135,14 @@
 			isa = PBXGroup;
 			children = (
 				6BD4B821257529B7006E19CF /* APIWorker.swift */,
+				6BA77FAA2590AB3800AF90CD /* NewNewsViewController.swift */,
 				6BA259022575196C00B5CD4D /* AppDelegate.swift */,
+				6BA77FA125908ED900AF90CD /* WelcomeViewController.swift */,
 				6BA259042575196C00B5CD4D /* SceneDelegate.swift */,
 				6BD4B82325752A2A006E19CF /* VKDelegate.swift */,
 				6BD4B82525752FA0006E19CF /* SwiftyJSON.swift */,
-				6B3FCAD5257E4E370083F1BD /* NewsViewController.swift */,
 				6BA259062575196C00B5CD4D /* ViewController.swift */,
 				6BA259082575196C00B5CD4D /* Main.storyboard */,
-				6B021FF62584B54500207716 /* NewsTableViewCell.swift */,
 				6BA2590B2575196F00B5CD4D /* Assets.xcassets */,
 				6BA2590D2575196F00B5CD4D /* LaunchScreen.storyboard */,
 				6BA259102575196F00B5CD4D /* Info.plist */,
@@ -298,11 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA259072575196C00B5CD4D /* ViewController.swift in Sources */,
+				6BA77FA225908ED900AF90CD /* WelcomeViewController.swift in Sources */,
 				6BA259032575196C00B5CD4D /* AppDelegate.swift in Sources */,
-				6B021FF72584B54500207716 /* NewsTableViewCell.swift in Sources */,
+				6BA77FAB2590AB3800AF90CD /* NewNewsViewController.swift in Sources */,
 				6BD4B82425752A2A006E19CF /* VKDelegate.swift in Sources */,
 				6BD4B82625752FA0006E19CF /* SwiftyJSON.swift in Sources */,
-				6B3FCAD6257E4E370083F1BD /* NewsViewController.swift in Sources */,
 				6BF2EAFC258A46A000E8E39C /* NewsFeed.swift in Sources */,
 				6BD4B822257529B7006E19CF /* APIWorker.swift in Sources */,
 				6BA259052575196C00B5CD4D /* SceneDelegate.swift in Sources */,

@@ -10,18 +10,14 @@ import Foundation
 import UIKit
 
 public class NewsFeed{
-    struct NewsItem: Codable{
-        var attachments: [Attachment]?
-        var text: String
-        var source_id: Int
-    }
+    
     var ready = false
     let news: NewsFeedStr
     var posts: [Post] = []
-    let homeVC: NewsViewController
+    let homeVC: NewNewsViewController
     var images: [UIImage] = [] 
     
-    init(pData:Data, pHomeVC: NewsViewController){
+    init(pData:Data, pHomeVC: NewNewsViewController){
         var decodedJSON = NewsFeedStr()
         do{
             decodedJSON = try JSONDecoder().decode(NewsFeed.NewsFeedStr.self, from: pData)
@@ -31,9 +27,6 @@ public class NewsFeed{
         }
         news = decodedJSON
         homeVC = pHomeVC
-        DispatchQueue.global(qos: .userInitiated).async{
-            self.makePosts()
-        }
     }
     
     struct NewsFeedStr: Codable{
@@ -44,6 +37,13 @@ public class NewsFeed{
             self.groups = pGroups
         }
     }
+    
+    struct NewsItem: Codable{
+        var attachments: [Attachment]? = []
+        var text: String
+        var source_id: Int
+    }
+    
     struct Group: Codable{
         var id: Int
         var name: String
@@ -69,60 +69,19 @@ public class NewsFeed{
     
     struct Post{
         var text: String?
-        var photos: [UIImage]?
+        var photos: [URL]?
         var group_name: String
-        var group_img: UIImage
+        var group_img: URL
     }
     
-    func makePosts(){
-        var result: [Post] = []
-        var text: String
-        var photos: [URL] = []
-        var images: [UIImage] = []
-        var groupImg: UIImage
-        let downloadGroupS = DispatchGroup()
-        var count: Int = 0
-        let downloadGroup = DispatchGroup()
+    func makePosts()->[Post]{
+        var posts: [Post] = []
         for i in news.items{
-            print("Downloading ")
-            if (i.attachments != nil){
-                photos = pickPhotosUrl(pAttachments: i.attachments!)
-                    for j in photos{
-                        downloadGroupS.enter()
-                        URLSession.shared.dataTask(with: j, completionHandler: {data, response, error in
-                            guard let data = data, error == nil else { return }
-                            print(response?.suggestedFilename ?? j.lastPathComponent)
-                            print("Download Finished")
-                            DispatchQueue.main.async() { [weak self] in
-                                images.append(UIImage(data: data)!)
-                                count+=1
-                            }}).resume()
-                        downloadGroupS.leave()
-                    }
-                    downloadGroup.enter()
-                    URLSession.shared.dataTask(with: j, completionHandler: {data, response, error in
-                            guard let data = data, error == nil else { return }
-                            print(response?.suggestedFilename ?? j.lastPathComponent)
-                            print("Group Download Finished")
-                            DispatchQueue.main.async() { [weak self] in
-                                groupImg = UIImage(data: data)
-                            }}).resume()
-                    text = i.text
-                    downloadGroup.leave()
-                    downloadGroup.wait()
-                    result.append(Post(text: text, photos: images , group_name: getGroupName(pNewsItem: i), group_img: group_img))
-                    images = []
-                }
-            }
-        while(count<news.items.count){}
-        downloadGroupS.notify(queue: DispatchQueue.main){
-            print("Newsfeed is ready")
-            print("s")
-            self.ready = true
-            self.posts = result
-            self.homeVC.tableView.reloadData()
+            posts.append(Post(text: i.text, photos: pickPhotosUrl(pAttachments: i.attachments ?? []), group_name: getGroupName(pNewsItem: i), group_img: getGroupPicture(pNewsItem: i)!))
         }
+        return posts
     }
+    
     
     func pickPhotosUrl(pAttachments: [Attachment])-> [URL]{
         var photos: [URL] = []
@@ -137,13 +96,7 @@ public class NewsFeed{
         }
         return photos
     }
-    
-    func downloadPhotos(pPhotos: [URL]) -> [UIImage]{
-        var result: [UIImage] = []
-        
-        return result;
-    }
-    
+
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
         
@@ -158,19 +111,11 @@ public class NewsFeed{
         return "NoName"
     }
     
-    func getGroupPicture(pNewsItem: NewsItem)->URL{
-        var result: URL
+    func getGroupPicture(pNewsItem: NewsItem)->URL?{
+        var result:URL
+        result = news.groups[0].photo_100
         for i in news.groups{
             if (pNewsItem.source_id * -1 == i.id){
-                print("Group Download started")
-                /*getData(from: i.photo_100) { data, response, error in
-                    guard let data = data, error == nil else { return }
-                    print(response?.suggestedFilename ?? i.photo_100.lastPathComponent)
-                    print("Group Download Finished")
-                    DispatchQueue.main.async() { [weak self] in
-                        result = UIImage(data: data) ?? UIImage()
-                    }
-                }*/
                 result = i.photo_100
             }
         }
